@@ -5,7 +5,7 @@
 </head>
 <body>
 <div>
-    <form name="form" action="/login" method="get">
+    <form name="form" action="/loginServlet" method="post">
         username:<input name="username" value="" type="text">
         password<input name="password" value="" type="password">
         interest:<input type="checkbox" value="book" name="interest">book
@@ -13,6 +13,11 @@
         <button type="submit" value="提交" name="submit" />提交
     </form>
 </div>
+<di>
+    <h3>表单提交的参数：</h3>
+    <h4>username : <%=request.getAttribute("username")%></h4>
+    <h4>password : <%=request.getAttribute("password")%></h4>
+</di>
 
     <%
         //这些都是我没有声明就可以使用的对象，叫做隐含对象
