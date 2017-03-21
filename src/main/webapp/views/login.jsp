@@ -1,10 +1,11 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
 <div>
+    <h3>POST Request</h3>
     <form name="form" action="/loginServlet" method="post">
         username:<input name="username" value="" type="text">
         password<input name="password" value="" type="password">
@@ -13,11 +14,17 @@
         <button type="submit" value="提交" name="submit" />提交
     </form>
 </div>
-<di>
-    <h3>表单提交的参数：</h3>
-    <h4>username : <%=request.getAttribute("username")%></h4>
-    <h4>password : <%=request.getAttribute("password")%></h4>
-</di>
+
+<div>
+    <h3>GET Request</h3>
+    <form name="form" action="/loginServlet" method="get">
+        username:<input name="username" value="" type="text">
+        password<input name="password" value="" type="password">
+        interest:<input type="checkbox" value="book" name="interest">book
+        <input type="checkbox" value="game" name="interest">game
+        <button type="submit" value="提交" name="submit" />提交
+    </form>
+</div>
 
     <%
         //这些都是我没有声明就可以使用的对象，叫做隐含对象
