@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+
+    <!-- 这是TLD的表述 -->
+    <description>MyTag 1.0 JSTL Library</description>
+    <display-name>My JSTL core</display-name>
+    <tlib-version>1.0</tlib-version>
+    <!-- 以下两个属性是调用时候所建议写的标签 -->
+    <short-name>my</short-name>
+    <uri>http://com.github.lishunxing/mytag/core</uri>
+
+    <!-- 描述自定义的hello 标签-->
+    <tag>
+        <name>hello</name>
+        <!-- 标签所实现的全类名 -->
+        <tag-class>com.github.lishunxing.tag.MyTag</tag-class>
+        <!-- 标签的内容类型,这里为Empty表明内容是一个空的标签-->
+        <body-content>empty</body-content>
+    </tag>
+
+    <tag>
+        <name>forEach</name>
+        <tag-class>com.github.lishunxing.tag.MyForEachTag</tag-class>
+        <!--此选项表明可以有内容使用el表达式-->
+        <body-content>scriptless</body-content>
+        <attribute>
+            <!-- 参数名称 -->
+            <name>items</name>
+            <!-- 是否必须 -->
+            <required>true</required>
+            <!-- 这是一个合成单词 Run-time Expression Value,表示此属性是否可以通过JSP语法比如EL表达式动态指定,为TRUE就可以写为${item},否则就必须直接指定具体的值-->
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <description>自定义choose标签</description>
+        <name>choose</name>
+        <tag-class>com.github.lishunxing.tag.MyChooseTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+
+    <tag>
+        <description>自定义when标签</description>
+        <name>when</name>
+        <tag-class>com.github.lishunxing.tag.MyWhenTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>flag</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>boolean</type>
+        </attribute>
+    </tag>
+
+    <tag>
+
+        <description>自定义other标签</description>
+        <name>other</name>
+        <tag-class>com.github.lishunxing.tag.MyOtherTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+
+
+    <!--自定义函数-->
+    <function>
+        <name>dateFormat</name>
+        <!--函数所在类-->
+        <function-class>com.github.lishunxing.tag.MyDateFormatFunction</function-class>
+        <!--函数的 返回值 方法名称 参数 -->
+        <function-signature>java.lang.String format(java.util.Date,java.lang.String)</function-signature>
+    </function>
+
+
+</taglib>
